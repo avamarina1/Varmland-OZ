@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Värmland OZ – skräddarsytt, ändringar och reparationer i Värmland." />
+  <title>Värmland OZ — Bespoke Tailoring</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=7" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Värmland OZ startsida">
+      <span class="brand-top">VÄRMLAND</span>
+      <span class="brand-main"><i></i>OZ<i></i></span>
+      <span class="brand-sub">BESPOKE TAILORING</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Huvudmeny">
+      <a class="active" href="#top" data-i18n="nav.home">Hem</a>
+      <a href="tjanster.html" data-i18n="nav.services">Tjänster</a>
+      <a href="priser.html" data-i18n="nav.prices">Priser</a>
+      <a href="#about" data-i18n="nav.about">Om oss</a>
+      <a href="#contact" data-i18n="nav.contact">Kontakt</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="language-switcher">
+  <button class="language" type="button" aria-label="Byt språk" aria-haspopup="true" aria-expanded="false">
+    <img class="globe-icon" src="assets/icons/globe.svg" alt="">
+    <img class="flag-icon current-flag" src="assets/icons/flag-se.svg" alt="">
+    <span class="current-lang">SV</span>
+    <img class="chevron-icon" src="assets/icons/chevron-down.svg" alt="">
+  </button>
+  <div class="language-menu" role="menu" hidden>
+    <button type="button" data-lang="sv"><img src="assets/icons/flag-se.svg" alt=""><span>Svenska</span><small>SV</small></button>
+    <button type="button" data-lang="en"><img src="assets/icons/flag-gb.svg" alt=""><span>English</span><small>EN</small></button>
+    <button type="button" data-lang="ru"><img src="assets/icons/flag-ru.svg" alt=""><span>Русский</span><small>RU</small></button>
+  </div>
+</div>
+      <a class="btn btn-outline desktop-book" href="#contact" data-i18n="nav.book">Boka konsultation</a>
+      <button class="menu-toggle" type="button" aria-label="Öppna meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-top">
+      <a class="brand brand-small" href="#top">
+        <span class="brand-top">VÄRMLAND</span><span class="brand-main"><i></i>OZ<i></i></span><span class="brand-sub">BESPOKE TAILORING</span>
+      </a>
+      <button class="menu-close" type="button" aria-label="Stäng meny">×</button>
+    </div>
+    <nav aria-label="Mobilmeny">
+      <a class="active" href="#top" data-i18n="nav.home">Hem</a>
+      <a href="tjanster.html" data-i18n="nav.services">Tjänster</a>
+      <a href="priser.html" data-i18n="nav.prices">Priser</a>
+      <a href="#about" data-i18n="nav.about">Om oss</a>
+      <a href="#contact" data-i18n="nav.contact">Kontakt</a>
+    </nav>
+    <hr>
+    <div class="language-switcher mobile-language-switcher">
+  <button class="language" type="button" aria-label="Byt språk" aria-haspopup="true" aria-expanded="false">
+    <img class="globe-icon" src="assets/icons/globe.svg" alt="">
+    <img class="flag-icon current-flag" src="assets/icons/flag-se.svg" alt="">
+    <span class="current-lang">SV</span>
+    <img class="chevron-icon" src="assets/icons/chevron-down.svg" alt="">
+  </button>
+  <div class="language-menu" role="menu" hidden>
+    <button type="button" data-lang="sv"><img src="assets/icons/flag-se.svg" alt=""><span>Svenska</span><small>SV</small></button>
+    <button type="button" data-lang="en"><img src="assets/icons/flag-gb.svg" alt=""><span>English</span><small>EN</small></button>
+    <button type="button" data-lang="ru"><img src="assets/icons/flag-ru.svg" alt=""><span>Русский</span><small>RU</small></button>
+  </div>
+</div>
+    <a class="btn btn-gold" href="#contact" data-i18n="nav.bookArrow">Boka konsultation →</a>
+    <div class="socials"><a href="#" aria-label="Instagram"><img src="assets/icons/instagram.svg" alt=""></a><a href="#" aria-label="TikTok"><img src="assets/icons/tiktok.svg" alt=""></a><a href="#" aria-label="Facebook"><img src="assets/icons/facebook.svg" alt=""></a></div>
+    <p class="location"><img src="assets/icons/location-pin.svg" alt=""><span>Molkom, Värmland</span></p>
+  </aside>
+  <div class="menu-backdrop" hidden></div>
+
+  <main>
+    <section class="hero">
+      <picture class="hero-media" aria-hidden="true">
+        <source media="(max-width: 650px)" srcset="assets/hero-mobile-v2.png">
+        <img src="assets/hero-desktop-v2.png" alt="">
+      </picture>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="hero.eyebrow">SKRÄDDARSYTT I VÄRMLAND</p>
+        <h1 data-i18n-html="hero.title">KLÄDER SOM<br>PASSAR DIG</h1>
+        <div class="gold-rule"></div>
+        <p class="lead" data-i18n="hero.lead">Vi skapar skräddarsydda kläder med tidlös stil, hantverk och omtanke – i Värmland.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-gold" href="#contact">Boka konsultation <span>→</span></a>
+          <a class="btn btn-outline" href="tjanster.html" data-i18n="hero.services">Våra tjänster</a>
+        </div>
+        <p class="values" data-i18n-html="hero.values">STIL <b>·</b> PASSFORM <b>·</b> KVALITET <b>·</b> SOM HÅLLER</p>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <article>
+        <div class="service-icon" aria-hidden="true"><img src="assets/icons/mannequin.svg" alt=""></div>
+        <h2 data-i18n="service.custom">SKRÄDDARSYTT</h2>
+        <p data-i18n-html="service.customText">Unika plagg skapade<br>för dig.</p>
+        <a href="tjanster.html#skraddarsytt" aria-label="Skräddarsytt">→</a>
+      </article>
+      <article>
+        <div class="service-icon" aria-hidden="true"><img src="assets/icons/scissors.svg" alt=""></div>
+        <h2 data-i18n="service.alter">ÄNDRINGAR</h2>
+        <p data-i18n-html="service.alterText">För bättre passform<br>och längre liv.</p>
+        <a href="tjanster.html#andringar" aria-label="Ändringar">→</a>
+      </article>
+      <article>
+        <div class="service-icon" aria-hidden="true"><img src="assets/icons/button.svg" alt=""></div>
+        <h2 data-i18n="service.repair">REPARATIONER</h2>
+        <p data-i18n-html="service.repairText">Ge dina favoritplagg<br>nytt liv.</p>
+        <a href="tjanster.html#reparationer" aria-label="Reparationer">→</a>
+      </article>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-image"><img src="assets/craftsmanship-v2.png" alt="Detalj av Värmland OZ skrädderiarbete" /></div>
+      <div class="about-copy">
+        <p class="eyebrow dark" data-i18n="about.eyebrow">HANTVERK I VARJE DETALJ</p>
+        <h2 data-i18n="about.title">Mer än bara kläder</h2>
+        <div class="gold-rule"></div>
+        <div class="about-text-row">
+          <p data-i18n-html="about.text">Klassiska plagg. Modern passform.<br>Skapade för att användas – länge.</p>
+          <blockquote data-i18n="about.quote">”Bra kläder förändrar hur du känner dig.”</blockquote>
+        </div>
+        <a class="btn btn-dark" href="tjanster.html" data-i18n="about.services">Läs mer om våra tjänster →</a>
+      </div>
+    </section>
+
+    <section class="prices" id="prices">
+      <div class="price-item"><span>Skräddarsydda plagg</span><strong>Pris efter konsultation</strong></div>
+      <div class="price-item"><span>Korta klänning eller kjol</span><strong>från 400 kr</strong></div>
+      <div class="price-item"><span>Uppläggning jeans</span><strong>300 kr</strong></div>
+      <div class="price-item"><span>Korta eller justera ärmar</span><strong>från 500 kr</strong></div>
+      <div class="price-item"><span>Mindre reparation</span><strong>från 250 kr</strong></div>
+      <a class="btn price-link" href="priser.html" data-i18n="prices.seeAll">Se hela prislistan →</a>
+    </section>
+
+    <section class="booking" id="contact">
+      <div class="booking-overlay"></div>
+      <div class="booking-copy">
+        <p class="eyebrow" data-i18n="booking.eyebrow">BOKA EN KONSULTATION</p>
+        <h2 data-i18n-html="booking.title">Låt oss skapa något<br>unikt tillsammans.</h2>
+        <a class="btn btn-gold" href="mailto:hello@varmlandoz.se" data-i18n="nav.bookArrow">Boka konsultation →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand brand-small" href="#top">
+      <span class="brand-top">VÄRMLAND</span><span class="brand-main"><i></i>OZ<i></i></span><span class="brand-sub">BESPOKE TAILORING</span>
+    </a>
+    <nav><a class="active" href="#top" data-i18n="nav.home">Hem</a><a href="tjanster.html" data-i18n="nav.services">Tjänster</a><a href="priser.html" data-i18n="nav.prices">Priser</a><a href="#about" data-i18n="nav.about">Om oss</a><a href="#contact" data-i18n="nav.contact">Kontakt</a></nav>
+    <div class="socials"><a href="#" aria-label="Instagram"><img src="assets/icons/instagram.svg" alt=""></a><a href="#" aria-label="TikTok"><img src="assets/icons/tiktok.svg" alt=""></a><a href="#" aria-label="Facebook"><img src="assets/icons/facebook.svg" alt=""></a></div>
+    <p class="location"><img src="assets/icons/location-pin.svg" alt=""><span>Molkom, Värmland</span></p>
+  </footer>
+
+  <script src="script.js?v=7"></script>
+</body>
+</html>
