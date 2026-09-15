@@ -73,7 +73,7 @@ const translations = {
     "service.repair":"REPAIRS","service.repairText":"Give your favourite garments<br>a new life.",
     "about.eyebrow":"CRAFT BUILT ON EXPERIENCE","about.title":"Behind Värmland OZ",
 "about.text":"Behind Värmland OZ is tailor Olga, with more than 20 years of experience in sewing and tailoring.<br><br>After moving from Latvia to Sweden five years ago, she explored new paths and learned new things. But the craft was always there – tailoring is her profession.<br><br>Now in Molkom, she is returning to what she knows best: creating, altering and giving new life to clothes with an eye for fit, quality and detail.",
-"about.quote":"","about.services":"Read more about our services →","booking.eyebrow":"BOOK A CONSULTATION",
+"about.quote":"","about.services":"Read more about our services →","prices.seeAll":"See full price list →","booking.eyebrow":"BOOK A CONSULTATION",
     "booking.title":"Let us create something<br>unique together.",
     "servicesPage.eyebrow":"TAILORING CRAFT IN VÄRMLAND","servicesPage.title":"Our services",
     "servicesPage.intro":"From a completely bespoke garment to the small adjustment that makes all the difference. We work with fit, quality and respect for the garment’s construction.",
