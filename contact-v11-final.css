@@ -1,0 +1,286 @@
+/* V11 FINAL — Kontakt + footer social icons */
+
+/* =========================
+   KONTAKT
+   ========================= */
+.contact-section{
+  background:#f4f0e7;
+  color:#1c1712;
+  padding:64px 6.5%;
+}
+
+.contact-inner{
+  width:min(100%, 900px);
+  margin:0 auto;
+  text-align:center;
+}
+
+.contact-section .eyebrow{
+  margin:0 0 10px;
+  text-align:center;
+}
+
+.contact-section h2{
+  margin:0;
+  font-size:46px;
+  line-height:1.05;
+  font-weight:500;
+  text-align:center;
+}
+
+.contact-section .gold-rule{
+  margin:18px auto 24px;
+}
+
+.contact-lead{
+  max-width:620px;
+  margin:0 auto 30px;
+  font-size:18px;
+  line-height:1.55;
+  text-align:center;
+}
+
+.contact-details{
+  font-family:var(--sans);
+  font-size:14px;
+  line-height:1.65;
+  text-align:center;
+}
+
+.contact-details strong{
+  display:block;
+  margin:0 0 8px;
+  font-family:var(--serif);
+  font-size:24px;
+  line-height:1.2;
+  font-weight:500;
+}
+
+.contact-details address{
+  margin:0;
+  font-style:normal;
+  line-height:1.55;
+}
+
+.contact-map{
+  display:inline-block;
+  margin:9px 0 18px;
+  color:#7c512d;
+  border-bottom:1px solid rgba(124,81,45,.35);
+  line-height:1.3;
+}
+
+.contact-lines{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px 28px;
+  flex-wrap:wrap;
+  margin:0;
+}
+
+.contact-lines > span{
+  display:block;
+}
+
+.contact-lines a{
+  border-bottom:1px solid rgba(28,23,18,.22);
+}
+
+.contact-actions{
+  max-width:760px;
+  margin:30px auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+
+.contact-actions .btn{
+  width:100%;
+  min-width:0;
+  min-height:50px;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  white-space:nowrap;
+}
+
+.btn-outline-contact{
+  background:transparent;
+  color:var(--green);
+  border:1px solid var(--green);
+}
+
+
+/* =========================
+   FOOTER — SOCIAL ICONS
+   Optical matching
+   ========================= */
+
+/* Same click/touch box for both icons */
+.footer .socials{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+}
+
+.footer .socials a{
+  width:24px;
+  height:24px;
+  padding:0;
+  margin:0;
+  border:0;
+  border-radius:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:0;
+  box-sizing:border-box;
+}
+
+/* Reset old Facebook frame completely */
+.footer .socials .facebook-social{
+  width:24px;
+  height:24px;
+  padding:0;
+  border:0;
+  border-radius:0;
+}
+
+/* Base SVG behaviour */
+.footer .socials img{
+  display:block;
+  object-fit:contain;
+  margin:0;
+}
+
+/*
+ Instagram's artwork contains more visual detail, so it gets a
+ fractionally larger rendered box. No extra CSS frame is added.
+*/
+.footer .socials a[aria-label="Instagram"] img{
+  width:22px;
+  height:22px;
+}
+
+/*
+ Facebook is kept optically comparable to Instagram.
+ The SVG itself remains untouched; no artificial outer frame.
+*/
+.footer .socials a[aria-label="Facebook"] img,
+.footer .socials .facebook-social img{
+  width:20px;
+  height:20px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+@media(max-width:650px){
+
+  .contact-section{
+    padding:42px 22px 48px;
+  }
+
+  .contact-inner{
+    width:100%;
+    max-width:430px;
+  }
+
+  .contact-section .eyebrow{
+    margin-bottom:9px;
+  }
+
+  .contact-section h2{
+    max-width:360px;
+    margin:0 auto;
+    font-size:32px;
+    line-height:1.08;
+  }
+
+  .contact-section .gold-rule{
+    margin:17px auto 22px;
+  }
+
+  .contact-lead{
+    max-width:355px;
+    margin:0 auto 27px;
+    font-size:15px;
+    line-height:1.55;
+  }
+
+  .contact-details{
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  .contact-details strong{
+    margin-bottom:7px;
+    font-size:22px;
+  }
+
+  .contact-map{
+    margin:8px 0 19px;
+  }
+
+  /* Never let phone and email collapse onto one line */
+  .contact-lines{
+    width:100%;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    justify-items:center;
+    gap:6px;
+    margin:0 auto;
+  }
+
+  .contact-lines > span{
+    display:block !important;
+    width:100%;
+    text-align:center;
+  }
+
+  /* Three calm, equal buttons */
+  .contact-actions{
+    width:min(100%, 355px);
+    margin:27px auto 0;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:10px;
+  }
+
+  .contact-actions .btn{
+    width:100% !important;
+    min-height:48px;
+    margin:0 !important;
+    padding:13px 16px;
+    box-sizing:border-box;
+  }
+
+  /* Keep the footer pair compact and visually balanced */
+  .footer .socials{
+    gap:20px;
+  }
+
+  .footer .socials a,
+  .footer .socials .facebook-social{
+    width:24px !important;
+    height:24px !important;
+    padding:0 !important;
+    border:0 !important;
+  }
+
+  .footer .socials a[aria-label="Instagram"] img{
+    width:22px !important;
+    height:22px !important;
+  }
+
+  .footer .socials a[aria-label="Facebook"] img,
+  .footer .socials .facebook-social img{
+    width:20px !important;
+    height:20px !important;
+  }
+}
