@@ -9,6 +9,51 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=9" />
+
+<style>
+/* V5.4.2 — PRICE PAGE FIX */
+.price-card:not(.featured) .price-card-intro{
+  color:#4d443d !important;
+}
+.furniture-card .eyebrow{
+  color:#a56c35;
+}
+.furniture-card{
+  grid-column:1 / -1;
+}
+.furniture-card .price-card-intro{
+  max-width:760px;
+  margin-bottom:18px;
+}
+@media (min-width:761px){
+  .furniture-card{
+    display:grid;
+    grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+    column-gap:48px;
+    align-items:start;
+  }
+  .furniture-card > .eyebrow,
+  .furniture-card > h2,
+  .furniture-card > .price-card-intro{
+    grid-column:1;
+  }
+  .furniture-card > .price-list,
+  .furniture-card > .price-note{
+    grid-column:2;
+  }
+  .furniture-card > .price-list{
+    grid-row:1 / span 4;
+    margin-top:10px;
+  }
+  .furniture-card > .price-note{
+    grid-row:5;
+  }
+}
+@media (max-width:760px){
+  .furniture-card{grid-column:auto}
+}
+</style>
+
 </head>
 <body class="price-page">
 <header class="site-header" id="top">
@@ -49,7 +94,7 @@
   <article class="price-card"><h2 data-i18n="pricePage.trousersTitle">Byxor</h2><ul class="price-list"><li class="price-row"><span class="price-name" data-i18n="pricePage.jeansHem">Uppläggning jeans</span><strong class="price-value" data-i18n="pricePage.price300">300 kr</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.trousersHem">Uppläggning vanliga byxor</span><strong class="price-value" data-i18n="pricePage.price400">400 kr</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.waist">Justera midja</span><strong class="price-value" data-i18n="pricePage.from400">från 400 kr</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.legWidth">Justera benvidd</span><strong class="price-value" data-i18n="pricePage.from400">från 400 kr</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.replaceZipper">Byta dragkedja</span><strong class="price-value" data-i18n="pricePage.from400Material">från 400 kr + material</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.otherAlterations">Övriga ändringar</span><strong class="price-value" data-i18n="pricePage.afterAssessment">Pris efter bedömning</strong></li></ul></article>
   <article class="price-card"><h2 data-i18n="pricePage.jacketsTitle">Jackor &amp; kappor</h2><ul class="price-list"><li class="price-row"><span class="price-name" data-i18n="pricePage.sleeves">Korta eller justera ärmar</span><strong class="price-value" data-i18n="pricePage.from500">från 500 kr</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.shortenLength">Korta längd</span><strong class="price-value" data-i18n="pricePage.from600">från 600 kr</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.majorFit">Större passformsändring</span><strong class="price-value" data-i18n="pricePage.afterAssessment">Pris efter bedömning</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.replaceZipper">Byta dragkedja</span><strong class="price-value" data-i18n="pricePage.assessmentMaterial">Pris efter bedömning + material</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.replaceLining">Byta foder</span><strong class="price-value" data-i18n="pricePage.assessmentMaterial">Pris efter bedömning + material</strong></li></ul></article>
   <article class="price-card"><h2 data-i18n="pricePage.repairsTitle">Reparationer</h2><ul class="price-list"><li class="price-row"><span class="price-name" data-i18n="pricePage.minorRepair">Mindre reparation, upp till ca 1 timme</span><strong class="price-value" data-i18n="pricePage.from250">från 250 kr</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.extraRepair">Ytterligare mindre reparation vid samma inlämning</span><strong class="price-value" data-i18n="pricePage.plus100">+100 kr/st</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.extensiveRepair">Mer omfattande reparation</span><strong class="price-value" data-i18n="pricePage.afterAssessment">Pris efter bedömning</strong></li></ul></article>
-  <article class="price-card"><p class="eyebrow">HEM &amp; INTERIÖR</p><h2>Möbler &amp; hemtextil</h2><p class="price-card-intro">Vi hjälper även till med sömnad, anpassning och mindre omklädselarbeten för hemmet. Pris lämnas efter bedömning eftersom materialåtgång, konstruktion och arbetets omfattning varierar.</p><ul class="price-list"><li class="price-row"><span class="price-name">Ottomaner &amp; sittpuffar</span><strong class="price-value">Pris efter bedömning</strong></li><li class="price-row"><span class="price-name">Dynor &amp; kuddfodral</span><strong class="price-value">Pris efter bedömning</strong></li><li class="price-row"><span class="price-name">Mindre omklädselarbeten</span><strong class="price-value">Pris efter bedömning</strong></li><li class="price-row"><span class="price-name">Sänggavlar</span><strong class="price-value">Pris efter bedömning</strong></li><li class="price-row"><span class="price-name">Gardiner &amp; hemtextil</span><strong class="price-value">Pris efter bedömning</strong></li><li class="price-row"><span class="price-name">Specialarbeten</span><strong class="price-value">Pris efter konsultation</strong></li></ul><p class="price-note">Vid hembesök tillkommer reseavgift. Kontakta oss eller boka hembesök för bedömning av större arbeten.</p></article>
+  <article class="price-card furniture-card"><p class="eyebrow">HEM &amp; INTERIÖR</p><h2>Möbler &amp; hemtextil</h2><p class="price-card-intro">Vi hjälper även till med sömnad, anpassning och mindre omklädselarbeten för hemmet. Pris lämnas efter bedömning eftersom materialåtgång, konstruktion och arbetets omfattning varierar.</p><ul class="price-list"><li class="price-row"><span class="price-name">Ottomaner &amp; sittpuffar</span><strong class="price-value">Pris efter bedömning</strong></li><li class="price-row"><span class="price-name">Dynor &amp; kuddfodral</span><strong class="price-value">Pris efter bedömning</strong></li><li class="price-row"><span class="price-name">Mindre omklädselarbeten</span><strong class="price-value">Pris efter bedömning</strong></li><li class="price-row"><span class="price-name">Sänggavlar</span><strong class="price-value">Pris efter bedömning</strong></li><li class="price-row"><span class="price-name">Gardiner &amp; hemtextil</span><strong class="price-value">Pris efter bedömning</strong></li><li class="price-row"><span class="price-name">Specialarbeten</span><strong class="price-value">Pris efter konsultation</strong></li></ul><p class="price-note">Vid hembesök tillkommer reseavgift. Kontakta oss eller boka hembesök för bedömning av större arbeten.</p></article>
   <article class="price-card"><h2 data-i18n="pricePage.consultTitle">Konsultation</h2><ul class="price-list"><li class="price-row"><span class="price-name" data-i18n="pricePage.consult10">Snabb konsultation, upp till 10 minuter</span><strong class="price-value" data-i18n="pricePage.free">Kostnadsfri</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.consult30">Konsultation, upp till 30 minuter</span><strong class="price-value" data-i18n="pricePage.price300">300 kr</strong></li><li class="price-row"><span class="price-name" data-i18n="pricePage.consult60">Utökad konsultation, upp till 60 minuter</span><strong class="price-value" data-i18n="pricePage.price700">700 kr</strong></li></ul><p class="price-note" data-i18n="pricePage.consultNote">Konsultationsavgiften kan avräknas vid större beställning.</p></article>
 </section>
 <section class="price-info"><div class="price-info-box"><h2 data-i18n="pricePage.infoTitle">Bra att veta</h2><p data-i18n="pricePage.info1">Alla priser är inklusive moms. Normalt småmaterial och tråd ingår. Tyg, dragkedjor och specialdetaljer tillkommer.</p><p data-i18n="pricePage.info2">Priset kan variera beroende på plagg, material, konstruktion och arbetsomfattning. Slutligt pris bekräftas efter bedömning.</p><div class="price-cta"><a class="btn btn-dark" href="https://script.google.com/macros/s/AKfycbz18TA--YGLsG0kHbS173jrMC9ok10OTdBmJp885Dc12YzWjy7zMIn8ZKbf1NQsIA8Z/exec" data-i18n="nav.bookArrow">Boka konsultation →</a></div></div></section>
