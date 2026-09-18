@@ -28,7 +28,7 @@ const translations = {
     "service.alter":"ÄNDRINGAR","service.alterText":"För bättre passform<br>och längre liv.",
     "service.repair":"REPARATIONER","service.repairText":"Ge dina favoritplagg<br>nytt liv.",
   "about.eyebrow":"HANTVERK MED ERFARENHET","about.title":"Bakom Värmland OZ",
-"about.text":"Bakom Värmland OZ står skräddaren Olga, med över 20 års erfarenhet av sömnad och skrädderi.<br><br>Efter flytten från Lettland till Sverige för fem år sedan provade hon nya vägar och lärde sig nya saker. Men hantverket har alltid funnits kvar – skrädderi är hennes yrke.<br><br>I Molkom återvänder hon nu till det hon kan bäst: att skapa, anpassa och ge nytt liv åt kläder med känsla för passform, kvalitet och detaljer.",
+"about.text":"Bakom Värmland OZ står skräddaren Olga, med över 20 års erfarenhet av sömnad och skrädderi.<br><br>Efter flytten från Lettland till Sverige för fem år sedan provade hon nya vägar och lärde sig nya saker. Men hantverket har alltid funnits kvar – skrädderi är hennes sanna yrke.<br><br>I Molkom återvänder hon nu till det hon kan bäst: att skapa, anpassa och ge nytt liv åt kläder med känsla för passform, kvalitet och detaljer.",
 "about.quote":"","about.services":"Läs mer om våra tjänster →", "prices.seeAll":"Se hela prislistan →","homePrices.eyebrow":"ETT URVAL AV VÅRA PRISER",
 "homePrices.title":"Omsorg i varje detalj.<br>Tydliga priser.",
 "homePrices.intro":"Här ser du några av våra vanligaste arbeten. För skräddarsydda plagg och mer omfattande ändringar lämnas pris efter konsultation eller bedömning.",
