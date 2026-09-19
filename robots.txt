@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://avamarina1.github.io/Varmland-OZ/sitemap.xml
