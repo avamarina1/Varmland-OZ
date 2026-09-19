@@ -58,7 +58,7 @@ const translations = {
     "contact.call":"Ring skräddaren",
     "contact.email":"Skicka e-post",
     "servicesPage.eyebrow":"SKRÄDDARHANTVERK I VÄRMLAND","servicesPage.title":"Våra tjänster",
-    "servicesPage.intro":"Från ett helt skräddarsytt plagg till den lilla justeringen som gör stor skillnad. Vi arbetar med passform, kvalitet och respekt för plaggets konstruktion.",
+    "servicesPage.intro":"Från skräddarsydda plagg till ändringar och reparationer. I vårt skrädderi i Molkom hjälper vi kunder från hela Värmland med bättre passform, lagningar och anpassningar som ger kläder ett längre liv.",
     "servicesPage.customTitle":"Plagg skapade för just dig",
     "servicesPage.customText":"Vi skapar skräddarsydda plagg utifrån dina mått, önskemål och behov. Modell, konstruktion och material väljs tillsammans och varje detalj formas för rätt känsla och passform.",
     "servicesPage.alterTitle":"Passform som känns självklar",
