@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <base target="_top">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #153d32;
+      --green-dark: #0d2d25;
+      --cream: #f7f1e7;
+      --paper: #fffaf2;
+      --bronze: #a66d43;
+      --gold: #c4a56a;
+      --text: #24312c;
+      --muted: #6f746f;
+      --line: rgba(21,61,50,.16);
+      --danger: #8c3f39;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--text);
+      font-family: Montserrat, sans-serif;
+    }
+
+    .page {
+      width: min(920px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 44px 0 70px;
+    }
+
+    .hero {
+      color: white;
+      text-align: center;
+      padding: 20px 10px 36px;
+      background: var(--green);
+      border-radius: 18px 18px 0 0;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 11px;
+      opacity: .72;
+      margin-bottom: 10px;
+    }
+
+    h1,
+    h2 {
+      font-family:
+        "Cormorant Garamond",
+        serif;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 8vw, 66px);
+      font-weight: 500;
+      line-height: .95;
+    }
+
+    .hero p {
+      max-width: 560px;
+      margin: 18px auto 0;
+      line-height: 1.7;
+      opacity: .86;
+      font-size: 14px;
+    }
+
+    .card {
+      background: var(--paper);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow:
+        0 20px 55px rgba(9,32,26,.16);
+      border: 1px solid rgba(255,255,255,.5);
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    .step-number {
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--bronze);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-size: 34px;
+      margin: 0 0 20px;
+      font-weight: 600;
+      color: var(--green-dark);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .service {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 16px;
+      padding: 18px;
+      cursor: pointer;
+      text-align: left;
+      transition: .18s ease;
+      font: inherit;
+      color: inherit;
+    }
+
+    .service:hover,
+    .service.selected {
+      border-color: var(--bronze);
+      transform: translateY(-1px);
+      box-shadow:
+        0 8px 20px rgba(40,50,45,.08);
+    }
+
+    .service.selected {
+      background: #f9f2e7;
+    }
+
+    .service-name {
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 7px;
+    }
+
+    .service-meta {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .field {
+      margin-bottom: 17px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 7px;
+      color: var(--green-dark);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 14px 15px;
+      font: inherit;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--bronze);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .slots {
+      display: grid;
+      grid-template-columns:
+        repeat(4, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .slot {
+      padding: 13px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: white;
+      cursor: pointer;
+      font: inherit;
+      color: var(--green-dark);
+      font-weight: 600;
+    }
+
+    .slot:hover,
+    .slot.selected {
+      border-color: var(--bronze);
+      background: #f7eee1;
+    }
+
+    .slot small {
+      display: block;
+      font-size: 9px;
+      color: var(--bronze);
+      margin-top: 3px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 100px;
+      padding: 14px 24px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: var(--green);
+      color: white;
+    }
+
+    .primary:hover {
+      background: var(--green-dark);
+    }
+
+    .secondary {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--green);
+    }
+
+    .primary:disabled {
+      opacity: .45;
+      cursor: default;
+    }
+
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .summary {
+      background: #f4ecdf;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 22px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .summary strong {
+      color: var(--green-dark);
+    }
+
+    .message {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 12px;
+      background: #fff3e8;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .error {
+      color: var(--danger);
+    }
+
+    .loading {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 15px;
+    }
+
+    .success {
+      text-align: center;
+      padding: 35px 10px 25px;
+    }
+
+    .success-mark {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      font-size: 26px;
+    }
+
+    .success h2 {
+      margin-bottom: 12px;
+    }
+
+    .success p {
+      max-width: 510px;
+      margin: auto;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+
+
+    .booking-inline-loader {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:18px 4px;
+      color:var(--muted);
+    }
+    .booking-inline-spinner {
+      width:28px;
+      height:28px;
+      flex:0 0 28px;
+      border:2px solid rgba(183,122,54,.22);
+      border-top-color:var(--gold);
+      border-radius:50%;
+      animation:bookingSpin .8s linear infinite;
+    }
+    @keyframes bookingSpin {
+      to { transform:rotate(360deg); }
+    }
+
+
+    .oz-inline-loader {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      min-height:72px;
+      padding:16px;
+      color:var(--muted);
+      text-align:left;
+    }
+    .oz-inline-spinner {
+      width:30px;
+      height:30px;
+      flex:0 0 30px;
+      border:2px solid rgba(183,122,54,.22);
+      border-top-color:var(--gold);
+      border-radius:50%;
+      animation:ozInlineSpin .8s linear infinite;
+    }
+    .oz-inline-loader strong {
+      display:block;
+      color:var(--green-dark);
+      margin-bottom:2px;
+    }
+    @keyframes ozInlineSpin {
+      to { transform:rotate(360deg); }
+    }
+
+
+    .tailor-call-bar {
+      margin:14px 0 20px;
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(255,255,255,.72);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .tailor-call-copy {
+      color:var(--muted);
+      font-size:13px;
+    }
+    .tailor-call-link {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:7px;
+      padding:9px 13px;
+      border:1px solid var(--gold);
+      border-radius:999px;
+      color:var(--green-dark);
+      background:#fffaf2;
+      text-decoration:none;
+      font-size:13px;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .tailor-call-link:hover {
+      text-decoration:none;
+    }
+
+
+    .booking-phone-bar {
+      margin:18px auto 0;
+      max-width:920px;
+      padding:12px 16px;
+      border:1px solid rgba(183,122,54,.35);
+      border-radius:16px;
+      background:#fffaf2;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      text-align:center;
+    }
+    .booking-phone-bar span {
+      color:var(--muted);
+      font-size:14px;
+    }
+    .booking-phone-button {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:9px 14px;
+      border-radius:999px;
+      background:var(--green-dark);
+      color:white;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+    }
+    .booking-phone-button:hover {
+      text-decoration:none;
+    }
+
+    .info-box {
+      margin: 16px 0;
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #f7eee1;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .info-box strong { color: var(--green-dark); }
+
+    .offer-box {
+      position: relative; overflow: hidden; margin: 18px 0;
+      padding: 18px 18px 18px 20px;
+      border: 1px solid rgba(183,122,54,.34); border-radius: 16px;
+      background: linear-gradient(135deg,#fffaf2 0%,#f3e6d3 100%);
+      box-shadow: 0 8px 24px rgba(41,51,43,.06);
+    }
+    .offer-box::before {
+      content:""; position:absolute; inset:0 auto 0 0; width:4px; background:var(--gold);
+    }
+    .offer-kicker {
+      margin-bottom:5px; color:var(--gold); font-size:11px; font-weight:700;
+      letter-spacing:.13em; text-transform:uppercase;
+    }
+    .offer-title { margin-bottom:6px; color:var(--green-dark); font-size:16px; font-weight:700; }
+    .offer-copy { font-size:13px; line-height:1.65; }
+    .choice-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:10px; }
+    .choice-pill {
+      display:flex; gap:9px; align-items:center; padding:12px 13px;
+      border:1px solid var(--line); border-radius:13px; background:#fff;
+      font-size:13px; font-weight:600; cursor:pointer;
+    }
+    .choice-pill input { width:auto; margin:0; }
+
+    .work-items { display:grid; gap:12px; margin:14px 0 18px; }
+    .work-item {
+      position:relative; padding:16px; border:1px solid var(--line);
+      border-radius:16px; background:#fff;
+    }
+    .work-item-head {
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px; margin-bottom:12px;
+    }
+    .work-item-title { font-size:13px; font-weight:700; color:var(--green-dark); }
+    .remove-work {
+      border:0; background:transparent; color:var(--muted);
+      font:inherit; font-size:12px; cursor:pointer; padding:4px 0;
+    }
+    .work-selects {
+      display:grid; grid-template-columns:1fr 1fr; gap:10px;
+    }
+    .add-work {
+      width:100%; margin-top:4px; border:1px dashed var(--gold);
+      background:#fffaf2; color:var(--green-dark);
+    }
+
+    .field-help { margin-top:-4px; margin-bottom:10px; color:var(--muted); font-size:12px; }
+
+    .check-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 18px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .check-row input {
+      width: auto;
+      margin-top: 3px;
+    }
+
+    .terms-details {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        background: var(--cream);
+      }
+
+      .page {
+        width: min(100% - 18px, 920px);
+        padding-top: 24px;
+      }
+
+      .hero {
+        padding-bottom: 30px;
+      }
+
+      .card {
+        border-radius: 20px;
+        padding: 20px;
+      }
+
+      .services,
+      .two, .choice-grid, .work-selects {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+      .service { width:100%; min-height:66px; }
+      .page { width:calc(100% - 20px); }
+      .card { min-width:0; }
+      .actions .btn { min-height:46px; }
+
+      .slots {
+        grid-template-columns:
+          repeat(3, minmax(0,1fr));
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+    }
+
+  
+    /* V5.4 FINAL.9 — clean hero/contact layout */
+    .booking-phone-bar {
+      margin: 26px auto 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .booking-phone-bar span {
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+    }
+
+    .booking-phone-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,.42);
+      border-radius: 999px;
+      background: transparent;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding-bottom: 28px;
+      }
+
+      .booking-phone-bar {
+        margin-top: 20px;
+        gap: 7px;
+      }
+
+      .booking-phone-bar span {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+  
+    .evening-contact-link {
+      color: var(--green-dark);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <section class="hero">
+    <div class="eyebrow">
+      Värmland OZ
+    </div>
+
+    <h1>Boka tid</h1>
+
+    <p>
+      Välj tjänst, datum och en ledig tid.
+      Bokningen bekräftas direkt via e-post.
+    </p>
+      <div id="bookingPhoneBar" class="booking-phone-bar">
+          <span>Föredrar du personlig kontakt?</span>
+          <a id="bookingPhoneLink" class="booking-phone-button" href="#">
+            ☎ Ring skräddaren
+          </a>
+        </div>
+  </section>
+
+  <main class="card">
+<section class="step active" id="step1">
+      <div class="step-number">
+        Steg 1 av 4
+      </div>
+
+      <h2>Vad vill du boka?</h2>
+
+      <div class="services"
+           id="services">
+        <div class="oz-inline-loader">
+          <div class="oz-inline-spinner" aria-hidden="true"></div>
+          <div>
+            <strong>Hämtar bokningsalternativ…</strong>
+            <span>Det tar vanligtvis bara några sekunder.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="step" id="step2">
+
+      <div class="step-number">
+        Steg 2 av 4
+      </div>
+
+      <h2>Välj datum och tid</h2>
+
+      <div class="field">
+        <label for="date">
+          Datum
+        </label>
+
+        <input type="date"
+               id="date">
+      </div>
+
+      <div id="slots"
+           class="slots"></div>
+
+      <div id="slotMessage"
+           class="loading"></div>
+
+      <div id="eveningInfo"
+           class="info-box"
+           style="display:none"></div>
+
+      <div class="actions">
+        <button class="btn secondary"
+                onclick="go(1)">
+          Tillbaka
+        </button>
+
+        <button class="btn primary"
+                id="toContact"
+                onclick="go(3)"
+                disabled>
+          Fortsätt
+        </button>
+      </div>
+    </section>
+
+
+    <section class="step" id="step3">
+
+      <div class="step-number">
+        Steg 3 av 4
+      </div>
+
+      <h2>Dina uppgifter</h2>
+
+      <div class="two">
+
+        <div class="field">
+          <label>Förnamn *</label>
+          <input id="firstName">
+        </div>
+
+        <div class="field">
+          <label>Efternamn *</label>
+          <input id="lastName">
+        </div>
+
+      </div>
+
+      <div class="two">
+
+        <div class="field">
+          <label>Telefon *</label>
+          <input id="phone"
+                 type="tel">
+        </div>
+
+        <div class="field">
+          <label>E-post *</label>
+          <input id="email"
+                 type="email">
+        </div>
+
+      </div>
+
+      <div id="homeVisitFields" class="hidden">
+        <div class="field">
+          <label>Adress *</label>
+          <input id="address" autocomplete="street-address">
+        </div>
+
+        <div class="two">
+          <div class="field">
+            <label>Postnummer *</label>
+            <input id="postalCode" autocomplete="postal-code">
+          </div>
+
+          <div class="field">
+            <label>Ort *</label>
+            <input id="city" autocomplete="address-level2">
+          </div>
+        </div>
+
+        <div id="homeVisitInfo" class="offer-box"></div>
+      </div>
+
+      <div class="field">
+        <label>Plagg / arbete (valfritt)</label>
+        <div class="field-help">
+          Om du redan vet vad bokningen gäller kan du välja plagg/område och därefter arbete.
+          Du kan också hoppa över detta och fortsätta utan att välja något.
+        </div>
+
+        <div id="workItems" class="work-items"></div>
+
+        <button
+          type="button"
+          class="btn secondary add-work"
+          onclick="addWorkItem()"
+        >
+          ＋ Lägg till ytterligare plagg/arbete
+        </button>
+      </div>
+
+      <div id="multiWorkInfo" class="offer-box"></div>
+
+      <div class="field">
+        <label>
+          Meddelande
+          <span style="font-weight:400">
+            (valfritt)
+          </span>
+        </label>
+
+        <textarea id="message"
+          placeholder="Beskriv gärna kort vad du behöver hjälp med."></textarea>
+      </div>
+
+      <div id="formError"
+           class="message error"
+           style="display:none">
+      </div>
+
+      <div class="actions">
+
+        <button class="btn secondary"
+                onclick="go(2)">
+          Tillbaka
+        </button>
+
+        <button class="btn primary"
+                onclick="showReview()">
+          Fortsätt
+        </button>
+
+      </div>
+    </section>
+
+
+    <section class="step" id="step4">
+
+      <div class="step-number">
+        Steg 4 av 4
+      </div>
+
+      <h2>Kontrollera bokningen</h2>
+
+      <div class="summary"
+           id="summary"></div>
+
+      <div class="check-row">
+        <input id="termsAccepted" type="checkbox">
+        <label for="termsAccepted" style="margin:0;font-weight:500">
+          <strong>Jag har läst och godkänner Värmland OZ:s boknings- och uppdragsvillkor.</strong> *
+        </label>
+      </div>
+
+      <details class="terms-details">
+        <summary style="cursor:pointer;color:var(--green-dark);font-weight:600">
+          Läs boknings- och uppdragsvillkoren
+        </summary>
+        <div style="margin-top:10px;line-height:1.65">
+          <strong>1. Bokning:</strong> Bokningen avser ett besök. Arbete, omfattning och slutligt pris bestäms efter bedömning.<br><br>
+          <strong>2. Pris:</strong> Pris beror på arbete, material och omfattning. Större eller flera arbeten kan få ett samlat pris eller erbjudande.<br><br>
+          <strong>3. Hembesök:</strong> Reseavgift tillkommer. Avgiften beror bland annat på avstånd och bekräftas före besöket.<br><br>
+          <strong>4. Ombokning:</strong> Meddela oss så snart som möjligt om du behöver boka om eller avboka.<br><br>
+          <strong>5. Plagg och material:</strong> Kunden ansvarar för att upplysa om sådant som kan påverka arbetet, exempelvis känsligt material, tidigare ändringar eller skador.<br><br>
+          <strong>6. Mått och passform:</strong> Mått, önskemål och passform dokumenteras för uppdraget. Kontakta oss så snart som möjligt om något behöver följas upp efter provning eller utfört arbete.<br><br>
+          <strong>7. Bilder och marknadsföring:</strong> Bilder på kund eller identifierbara personer används inte i marknadsföring utan separat samtycke. Samtycke till marknadsföring ingår inte i dessa bokningsvillkor.<br><br>
+          <strong>8. Konsumenträtt:</strong> Villkoren begränsar inte rättigheter som följer av tillämplig konsumentlagstiftning.
+        </div>
+      </details>
+
+      <div id="bookingError"
+           class="message error"
+           style="display:none">
+      </div>
+
+      <div class="actions">
+
+        <button class="btn secondary"
+                onclick="go(3)">
+          Tillbaka
+        </button>
+
+        <button class="btn primary"
+                id="bookButton"
+                onclick="submitBooking()"
+                disabled>
+          Boka tid
+        </button>
+
+      </div>
+    </section>
+
+
+    <section class="step"
+             id="success">
+
+      <div class="success">
+
+        <div class="success-mark">
+          ✓
+        </div>
+
+        <h2>Tack för din bokning</h2>
+
+        <p id="successText">
+          Din tid är bokad.
+          En bekräftelse har skickats via e-post.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<script>
+  const state = {
+    config: null,
+    service: null,
+    slot: null
+  };
+
+
+  function $(id) {
+    return document.getElementById(id);
+  }
+
+
+  function go(step) {
+    document
+      .querySelectorAll('.step')
+      .forEach(el =>
+        el.classList.remove('active')
+      );
+
+    $('step' + step)
+      .classList.add('active');
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+
+  function init() {
+    google.script.run
+      .withSuccessHandler(renderConfig)
+      .withFailureHandler(showFatal)
+      .getPublicBookingConfig();
+  }
+
+
+
+  function serviceDisplayLabel(service) {
+    const code = String(service.code || '').toUpperCase();
+
+    const labels = {
+      CONSULT_10: 'Ingen avgift',
+      CONSULT_30: '300 kr',
+      CONSULT_60: '700 kr',
+      DROPOFF: 'För befintlig order',
+      FITTING: 'I samband med order',
+      MEASUREMENT: 'Pris enligt uppdrag',
+      PICKUP: 'För färdig order',
+      HOME_VISIT: 'Reseavgift tillkommer'
+    };
+
+    if (labels[code]) {
+      return labels[code];
+    }
+
+    return Number(service.price || 0) > 0
+      ? Number(service.price) + ' kr'
+      : 'Pris enligt uppdrag';
+  }
+
+
+
+  function renderBookingPhoneButton() {
+    const bar = $('bookingPhoneBar');
+    const link = $('bookingPhoneLink');
+
+    if (!bar || !link) return;
+
+    /*
+      getPublicBookingConfig() skickar telefonnumret
+      som config.phone.
+    */
+    const phone =
+      state.config &&
+      (state.config.phone || state.config.phoneNumber)
+        ? String(
+            state.config.phone ||
+            state.config.phoneNumber
+          ).trim()
+        : '';
+
+    if (!phone) {
+      bar.style.display = 'none';
+      return;
+    }
+
+    const hrefPhone =
+      phone.replace(/[^\d+]/g, '');
+
+    link.href = 'tel:' + hrefPhone;
+    link.textContent =
+      '☎ Ring skräddaren · ' + phone;
+
+    bar.style.display = 'flex';
+  }
+
+  function renderConfig(config) {
+    state.config = config;
+    renderBookingPhoneButton();
+
+    $('date').min = config.today;
+    $('date').max = config.maxDate;
+
+    $('multiWorkInfo').innerHTML =
+      '<div class="offer-kicker">Värmland OZ-förmån</div>' +
+      '<div class="offer-title">Flera arbeten? Få mer ut av samma order</div>' +
+      '<div class="offer-copy">Flera arbeten på samma order? Samla dem på samma order – <strong>det kan ge dig ett bättre totalpris.</strong></div>';
+
+    const eveningText =
+      'Saknas kvällstid den dag du önskar? Kontakta oss så ser vi om en annan tid är möjlig.';
+
+    const eveningPhone =
+      String(config.phone || '').trim();
+
+    if (eveningPhone) {
+      const eveningHref =
+        eveningPhone.replace(/[^\d+]/g, '');
+
+      $('eveningInfo').innerHTML =
+        'Saknas kvällstid den dag du önskar? ' +
+        '<a href="tel:' + eveningHref + '" class="evening-contact-link">Kontakta oss</a>' +
+        ' så ser vi om en annan tid är möjlig.';
+    } else {
+      $('eveningInfo').textContent = eveningText;
+    }
+
+    $('eveningInfo').style.display = 'block';
+
+    if (!$('workItems').children.length) addWorkItem();
+
+    $('services').innerHTML =
+      config.services
+        .map(service => {
+
+          const price = serviceDisplayLabel(service);
+
+          return `
+            <button
+              class="service"
+              data-service-index="${config.services.indexOf(service)}"
+            >
+              <div class="service-name">
+                ${escapeHtml(service.name)}
+              </div>
+
+              <div class="service-meta">
+                ${service.duration} min ·
+                ${price}
+              </div>
+            </button>
+          `;
+        })
+        .join('');
+    $('services').querySelectorAll('[data-service-index]').forEach(button => {
+      button.addEventListener('click', () => selectService(config.services[Number(button.dataset.serviceIndex)]));
+    });
+  }
+
+
+  function selectService(service) {
+    state.service = service;
+    state.slot = null;
+
+    document
+      .querySelectorAll('.service')
+      .forEach(el =>
+        el.classList.remove('selected')
+      );
+
+    const selectedButton = Array.from(document.querySelectorAll('.service'))
+      .find(button => button.dataset.serviceIndex === String(state.config.services.indexOf(service)));
+    if (selectedButton) selectedButton.classList.add('selected');
+
+    const isHomeVisit = service.code === 'HOME_VISIT';
+    $('homeVisitFields').classList.toggle('hidden', !isHomeVisit);
+
+    if (isHomeVisit) {
+      $('homeVisitInfo').innerHTML =
+        '<div class="offer-kicker">Hembesök</div>' +
+        '<div class="offer-title">Vi kommer till dig</div>' +
+        '<div class="offer-copy"><strong>Reseavgift tillkommer.</strong> ' +
+        'Avgiften beror bland annat på avstånd och bekräftas med dig före besöket.' +
+        '<br><br><strong>Tips!</strong> Boka med en granne. Ett samordnat hembesök kan ge båda ett bättre erbjudande.' +
+        '</div>';
+    }
+
+    $('date').value = '';
+    $('slots').innerHTML = '';
+    $('slotMessage').textContent = '';
+
+    go(2);
+  }
+
+
+  $('date').addEventListener(
+    'change',
+    loadSlots
+  );
+
+
+  function loadSlots() {
+    const date = $('date').value;
+
+    if (!date || !state.service) {
+      return;
+    }
+
+    state.slot = null;
+
+    $('toContact').disabled = true;
+    $('slots').innerHTML = '';
+    $('slotMessage').innerHTML =
+      '<div class="oz-inline-loader">' +
+        '<div class="oz-inline-spinner" aria-hidden="true"></div>' +
+        '<div><strong>Letar efter lediga tider…</strong>' +
+        '<span>Det tar vanligtvis bara några sekunder.</span></div>' +
+      '</div>';
+
+    const requestedDate = date;
+    const requestedService = state.service.code;
+    google.script.run
+      .withSuccessHandler(slots => {
+        if ($('date').value === requestedDate && state.service && state.service.code === requestedService) renderSlots(slots);
+      })
+      .withFailureHandler(error => {
+        $('slotMessage').textContent =
+          (error && error.message) ||
+          'Kunde inte hämta tider. Försök igen.';
+      })
+      .getAvailableSlots(
+        date,
+        state.service.code
+      );
+  }
+
+
+  function renderSlots(slots) {
+    $('slotMessage').textContent = '';
+
+    if (!slots.length) {
+      $('slots').innerHTML = '';
+
+      $('slotMessage').textContent =
+        'Det finns inga lediga tider detta datum.';
+
+      return;
+    }
+
+    $('slots').innerHTML =
+      slots.map((slot, index) => `
+        <button
+          class="slot"
+          onclick="selectSlot(
+            ${index},
+            this
+          )"
+        >
+          ${slot.time}
+
+          ${
+            slot.evening
+              ? `<small>+${slot.eveningSurcharge} kr kväll</small>`
+              : ''
+          }
+        </button>
+      `).join('');
+
+    window.currentSlots = slots;
+  }
+
+
+  function selectSlot(index, element) {
+    state.slot =
+      window.currentSlots[index];
+
+    document
+      .querySelectorAll('.slot')
+      .forEach(el =>
+        el.classList.remove('selected')
+      );
+
+    element.classList.add('selected');
+
+    $('toContact').disabled = false;
+  }
+
+
+
+  const WORK_CATALOG = {
+    'Byxor / jeans': [
+      'Lägga upp / korta',
+      'Justera midja',
+      'Smalna av / justera benvidd',
+      'Byta dragkedja',
+      'Laga / reparera',
+      'Ändra passform',
+      'Annat'
+    ],
+    'Klänning / kjol': [
+      'Korta utan foder',
+      'Korta med foder',
+      'Sy in / ut',
+      'Ändra passform',
+      'Byta dragkedja',
+      'Laga / reparera',
+      'Fest- / specialanpassning',
+      'Annat'
+    ],
+    'Kavaj / jacka / rock': [
+      'Korta / justera ärmar',
+      'Korta längd',
+      'Sy in / ut',
+      'Ändra passform',
+      'Byta dragkedja',
+      'Byta / laga foder',
+      'Laga / reparera',
+      'Annat'
+    ],
+    'Skjorta / blus': [
+      'Korta / justera ärmar',
+      'Sy in / ut',
+      'Ändra passform',
+      'Laga / reparera',
+      'Annat'
+    ],
+    'Brud- / festplagg': [
+      'Provning',
+      'Korta',
+      'Sy in / ut',
+      'Ändra passform',
+      'Specialanpassning',
+      'Laga / reparera',
+      'Annat'
+    ],
+    'Skräddarsytt plagg': [
+      'Konsultation',
+      'Måttagning',
+      'Nytt skräddarsytt plagg',
+      'Provning',
+      'Ändring av befintligt plagg',
+      'Annat'
+    ],
+    'Gardiner / hemtextil': [
+      'Korta gardiner',
+      'Sy nya gardiner',
+      'Justera bredd / längd',
+      'Sy kuddfodral / textil',
+      'Måttagning / bedömning',
+      'Laga / reparera',
+      'Annat'
+    ],
+    'Möbel / omklädsel': [
+      'Bedömning / konsultation',
+      'Måttagning',
+      'Sy nytt överdrag',
+      'Mindre omklädselarbete',
+      'Dynor / kuddfodral',
+      'Laga / reparera',
+      'Anpassning',
+      'Annat'
+    ],
+    'Måttagning': [
+      'Kroppsmått',
+      'Plaggmått',
+      'Mått för skräddarsytt',
+      'Mått för gardiner / hemtextil',
+      'Mått för möbel / omklädsel',
+      'Annat'
+    ],
+    'Annat': [
+      'Bedömning / konsultation',
+      'Måttagning',
+      'Ändring',
+      'Reparation',
+      'Specialarbete',
+      'Annat'
+    ]
+  };
+
+  let workItemCounter = 0;
+
+  function garmentOptions() {
+    return [
+      'Byxor / jeans',
+      'Klänning / kjol',
+      'Kavaj / jacka / rock',
+      'Skjorta / blus',
+      'Brud- / festplagg',
+      'Skräddarsytt plagg',
+      'Gardiner / hemtextil',
+      'Möbel / omklädsel',
+      'Måttagning',
+      'Annat'
+    ];
+  }
+
+  function addWorkItem(prefill) {
+    workItemCounter++;
+    const id = workItemCounter;
+    const root = $('workItems');
+
+    const item = document.createElement('div');
+    item.className = 'work-item';
+    item.dataset.workItem = String(id);
+
+    item.innerHTML = `
+      <div class="work-item-head">
+        <div class="work-item-title">Plagg / arbete ${id}</div>
+        ${id > 1 ? `<button type="button" class="remove-work" onclick="removeWorkItem(${id})">Ta bort</button>` : ''}
+      </div>
+
+      <div class="work-selects">
+        <div class="field" style="margin:0">
+          <label for="garment_${id}">Plagg / område</label>
+          <select id="garment_${id}" onchange="updateWorkOptions(${id})">
+            <option value="">Välj plagg eller område…</option>
+            ${garmentOptions().map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join('')}
+          </select>
+        </div>
+
+        <div class="field" style="margin:0">
+          <label for="work_${id}">Arbete</label>
+          <select id="work_${id}" disabled>
+            <option value="">Välj plagg först…</option>
+          </select>
+        </div>
+      </div>
+    `;
+
+    root.appendChild(item);
+
+    if (prefill && prefill.garment) {
+      $('garment_' + id).value = prefill.garment;
+      updateWorkOptions(id);
+      if (prefill.work) $('work_' + id).value = prefill.work;
+    }
+  }
+
+  function removeWorkItem(id) {
+    const item = document.querySelector(`[data-work-item="${id}"]`);
+    if (item) item.remove();
+  }
+
+  function updateWorkOptions(id) {
+    const garment = $('garment_' + id).value;
+    const workSelect = $('work_' + id);
+    const options = WORK_CATALOG[garment] || [];
+
+    workSelect.innerHTML = garment
+      ? `<option value="">Välj arbete…</option>` +
+        options.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join('')
+      : `<option value="">Välj plagg först…</option>`;
+
+    workSelect.disabled = !garment;
+  }
+
+  function collectWorkItems() {
+    return Array.from(document.querySelectorAll('[data-work-item]'))
+      .map(item => {
+        const id = item.dataset.workItem;
+        return {
+          garment: $('garment_' + id).value,
+          work: $('work_' + id).value
+        };
+      })
+      .filter(item => item.garment && item.work);
+  }
+
+
+  function selectedValues(containerId) {
+    return Array.from(document.querySelectorAll(
+      '#' + containerId + ' input[type="checkbox"]:checked'
+    )).map(input => input.value);
+  }
+
+  function showReview() {
+
+    $('formError').style.display = 'none';
+
+    const firstName =
+      $('firstName').value.trim();
+
+    const lastName =
+      $('lastName').value.trim();
+
+    const phone =
+      $('phone').value.trim();
+
+    const email =
+      $('email').value.trim();
+
+    if (
+      !firstName ||
+      !lastName ||
+      !phone ||
+      !email
+    ) {
+      $('formError').style.display =
+        'block';
+
+      $('formError').textContent =
+        'Fyll i förnamn, efternamn, telefon och e-post.';
+
+      return;
+    }
+
+    const isHomeVisit =
+      state.service &&
+      state.service.code === 'HOME_VISIT';
+
+    if (
+      isHomeVisit &&
+      (
+        !$('address').value.trim() ||
+        !$('postalCode').value.trim() ||
+        !$('city').value.trim()
+      )
+    ) {
+      $('formError').style.display = 'block';
+      $('formError').textContent =
+        'Fyll i adress, postnummer och ort för hembesök.';
+      return;
+    }
+
+
+    /*
+      Plagg / arbete är VALFRITT.
+      collectWorkItems() skickar bara med kompletta val.
+      Kunden får fortsätta även om inget plagg har valts.
+    */
+    const workItems = collectWorkItems();
+
+    if (!email.includes('@')) {
+      $('formError').style.display =
+        'block';
+
+      $('formError').textContent =
+        'Kontrollera e-postadressen.';
+
+      return;
+    }
+
+    $('formError').style.display =
+      'none';
+
+    const evening =
+      state.slot.eveningSurcharge > 0
+        ? `<br><strong>Kvällstidstillägg:</strong>
+           ${state.slot.eveningSurcharge} kr`
+        : '';
+
+    $('summary').innerHTML = `
+      <strong>Tjänst:</strong>
+      ${escapeHtml(state.service.name)}
+      <br>
+
+      <strong>Datum:</strong>
+      ${formatDate($('date').value)}
+      <br>
+
+      <strong>Tid:</strong>
+      ${state.slot.time}
+      <br>
+
+      <strong>Längd:</strong>
+      ${state.service.duration} min
+
+      ${evening}
+
+      <br><br>
+
+      <strong>Kund:</strong>
+      ${escapeHtml(firstName)}
+      ${escapeHtml(lastName)}
+      <br>
+
+      <strong>Telefon:</strong>
+      ${escapeHtml(phone)}
+      <br>
+
+      <strong>E-post:</strong>
+      ${escapeHtml(email)}
+
+      <br><br>
+      <strong>Plagg / arbeten:</strong><br>
+      ${workItems.map(item =>
+        `${escapeHtml(item.garment)} → ${escapeHtml(item.work)}`
+      ).join('<br>')}
+
+
+      ${
+        isHomeVisit
+          ? `<br><br>
+             <strong>Hembesök:</strong><br>
+             ${escapeHtml($('address').value.trim())}<br>
+             ${escapeHtml($('postalCode').value.trim())}
+             ${escapeHtml($('city').value.trim())}`
+          : ''
+      }
+    `;
+
+    go(4);
+  }
+
+
+
+  $('termsAccepted').addEventListener('change', function() {
+    $('bookButton').disabled = !this.checked;
+  });
+
+  function submitBooking() {
+
+    $('bookingError').style.display = 'none';
+
+    if (!$('termsAccepted').checked) {
+      $('bookingError').style.display = 'block';
+      $('bookingError').textContent =
+        'Godkänn bokningsvillkoren för att fortsätta.';
+      return;
+    }
+
+    const button = $('bookButton');
+
+    button.disabled = true;
+    button.textContent = 'Bekräftar bokningen…';
+
+    $('bookingError').style.display = 'block';
+    $('bookingError').classList.remove('error');
+    $('bookingError').innerHTML =
+      '<div class="oz-inline-loader">' +
+        '<div class="oz-inline-spinner" aria-hidden="true"></div>' +
+        '<div><strong>Bekräftar din bokning…</strong>' +
+        '<span>Stäng inte sidan ännu.</span></div>' +
+      '</div>';
+
+    const payload = {
+      serviceCode: state.service.code,
+      startISO: state.slot.startISO,
+
+      firstName:
+        $('firstName').value.trim(),
+
+      lastName:
+        $('lastName').value.trim(),
+
+      phone:
+        $('phone').value.trim(),
+
+      email:
+        $('email').value.trim(),
+
+      message:
+        $('message').value.trim(),
+
+      address:
+        $('address').value.trim(),
+
+      postalCode:
+        $('postalCode').value.trim(),
+
+      city:
+        $('city').value.trim(),
+
+      termsAccepted:
+        $('termsAccepted').checked,
+
+      workItems:
+        collectWorkItems()
+    };
+
+    google.script.run
+      .withSuccessHandler(result => {
+
+        $('bookingError').style.display = 'none';
+        $('bookingError').classList.add('error');
+
+        document
+          .querySelectorAll('.step')
+          .forEach(el =>
+            el.classList.remove('active')
+          );
+
+        $('success')
+          .classList.add('active');
+
+        $('successText').innerHTML =
+          `Din tid för
+          <strong>${escapeHtml(
+            result.serviceName
+          )}</strong>
+          kl.
+          <strong>${result.time}</strong>
+          är bokad.
+          En bekräftelse har skickats via e-post.`;
+
+      })
+      .withFailureHandler(error => {
+
+        button.disabled = false;
+        button.textContent = 'Boka tid';
+
+        $('bookingError').style.display =
+          'block';
+
+        $('bookingError').textContent =
+          error.message ||
+          'Bokningen kunde inte genomföras.';
+
+      })
+      .createBooking(payload);
+  }
+
+
+  function formatDate(value) {
+    const date =
+      new Date(value + 'T12:00:00');
+
+    return new Intl.DateTimeFormat(
+      'sv-SE',
+      {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }
+    ).format(date);
+  }
+
+
+  function escapeHtml(value) {
+    return String(value || '')
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#039;');
+  }
+
+
+  function showFatal(error) {
+    document.body.innerHTML =
+      '<div style="padding:30px;font-family:sans-serif">' +
+      'Bokningssidan kunde inte laddas.<br><br>' +
+      escapeHtml(error.message || error) +
+      '</div>';
+  }
+
+
+  init();
+</script>
+
+</body>
+</html>
